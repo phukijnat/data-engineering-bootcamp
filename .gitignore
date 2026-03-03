@@ -193,4 +193,4 @@ de-lifecycle
 data/
 
 # DEB dataengineercafe keyfiles
-dataengineercafe-*.json
+deb_*.json
