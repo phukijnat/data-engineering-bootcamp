@@ -8,7 +8,7 @@ BUCKET_NAME = "deb-bootcamp-37"
 DATA = "order_items"
 KEYFILE_PATH = "/opt/spark/pyspark/deb-uploading-files-to-gcs.json"
 
-execution_date = os.getenv('EXECUTION_DATE')
+
 
 spark = SparkSession.builder.appName("greenery") \
     .config("spark.memory.offHeap.enabled", "true") \
