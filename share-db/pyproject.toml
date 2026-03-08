@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "bootcamp-db"
+version = "0.1.0"
+description = ""
+authors = ["- "]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^2.0.0"
+sqlalchemy = "^2.0.0"
+psycopg2-binary = "^2.9.6"  # สำหรับเชื่อมต่อ Postgres
+python-dotenv = "^1.0.0"   # กรณีอยากเก็บ Password ไว้ในไฟล์ .env
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.23.0"      # สำหรับรันใน Jupyter Notebook/VS Code Interactive
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

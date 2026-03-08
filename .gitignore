@@ -194,3 +194,6 @@ data/
 
 # DEB dataengineercafe keyfiles
 deb-*.json
+
+# CSV
+*.csv

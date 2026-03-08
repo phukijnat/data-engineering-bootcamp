@@ -1,0 +1,21 @@
+services:
+  dataengineer-bootcamp-db:
+    image: postgres:13
+    container_name: dataengineer-bootcamp-db # ชื่อที่จะใช้เรียกใน Airflow Connection
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=data_source
+    ports:
+      - "5433:5432" 
+    networks:
+      - lab_shared_network
+    volumes:
+      - bootcamp_db_data:/var/lib/postgresql/data
+
+networks:
+  lab_shared_network:
+    name: lab_shared_network
+
+volumes:
+  bootcamp_db_data:
