@@ -2,12 +2,6 @@ version: 2
 
 models:
 
-  - name: stg_greenery__users
-    description: Greenery users
-    columns:
-      - name: user_guid
-        description: User ID
-
   - name: stg_greenery__events
     description: Greenery events
     columns:
