@@ -35,8 +35,8 @@ models:
       +schema: staging
       greenery:
         +materialized: view
-      intermediate:
-        +schema: intermediate
-        +materialized: view
-      marts:
-        +schema: marts
+    intermediate:
+      +schema: intermediate
+      +materialized: view
+    marts:
+      +schema: marts
