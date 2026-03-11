@@ -35,9 +35,9 @@ def _extract_data(ds):
                 page_url,
                 created_at,
                 event_type,
-                "user",
-                "order",
-                product
+                user_id,
+                order_id,
+                product_id
             FROM {DATA}
             WHERE created_at = '{ds}'
         """
