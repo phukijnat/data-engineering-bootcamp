@@ -1,23 +1,26 @@
 import os
+from dotenv import load_dotenv
 
 from google import genai
 from google.genai import types
 
+load_dotenv()
 
+GEMINI_API_KEY = os.getenv("GEMINI_KEY")
 # GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
-GEMINI_API_KEY = "YOUR_GEMINI_API_KEY"
 
 
-def ask_gemini(client, model: str = "gemini-2.0-flash-001", prompt: str = ""):
+
+def ask_gemini(client, model: str = "gemini-2.5-flash", prompt: str = ""):
     response = client.models.generate_content(
         model=model,
         contents=prompt,
-        # config=types.GenerateContentConfig(
-        #     system_instruction=[
-        #         "You are a bad manager.",
-        #         "Your mission is to get people work in the office."
-        #     ]
-        # ),
+        config=types.GenerateContentConfig(
+            system_instruction=[
+                "You are a bad manager.",
+                "Your mission is to get people work in the office."
+            ]
+        ),
     )
     return response.text
 

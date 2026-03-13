@@ -11,13 +11,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+
 GCP_PROJECT_ID = "dataengineer-bootcamp"
 DATASET_ID = "deb_bootcamp"
 KEYFILE = "deb-loading-data-to-bq.json"
-TABLE_ID = "my_course_embeddings"
-# api_key = os.environ.get("GEMINI_API_KEY")
+TABLE_ID = "greenery_embeddings"
 GEMINI_API_KEY = os.getenv("GEMINI_KEY")
-
 
 
 def get_embedding(client, model: str = "gemini-embedding-2-preview", text: str = ""):
@@ -34,8 +33,9 @@ def ask_gemini(client, model: str = "gemini-2.5-flash", prompt: str = ""):
         contents=prompt,
         config=types.GenerateContentConfig(
             system_instruction=[
-                "You are a course recommender.",
-                "Your mission is to recommend courses for people who want to upskill and switch careers."
+                "You are a data analyst who works for the Greenery company.",
+                "Your mission is to summarize the Greenery data and prepare the reports for the management.",
+                "Greenery, a tech startup that delivers flowers and houseplants. You are here to grow revenue and acquire new customers!",
             ]
         ),
     )
@@ -134,6 +134,9 @@ def main():
             context = " / ".join([each for each in similar_texts])
 
             prompt_with_context = f"""
+            Given the context below, find the actionable insights and 
+            answer the question. Explain like I'm 10.
+
             Context:
             {context}
 

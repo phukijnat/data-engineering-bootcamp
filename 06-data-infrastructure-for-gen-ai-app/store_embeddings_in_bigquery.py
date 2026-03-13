@@ -5,16 +5,19 @@ import pandas as pd
 from google import genai
 from google.cloud import bigquery
 from google.oauth2 import service_account
+from dotenv import load_dotenv
+load_dotenv()
+
+GCP_PROJECT_ID = "dataengineer-bootcamp"
+DATASET_ID = "deb_bootcamp"
+KEYFILE = "deb-loading-data-to-bq.json"
 
 
-GCP_PROJECT_ID = "YOUR_GCP_PROJECT_ID"
-DATASET_ID = "YOUR_DATASET_ID"
-KEYFILE = "YOUR_KEYFILE"
-# api_key = os.environ.get("GEMINI_API_KEY")
-GEMINI_API_KEY = "YOUR_GEMINI_API_KEY"
+# GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+GEMINI_API_KEY = os.getenv("GEMINI_KEY")
 
 
-def get_embedding(client, model: str = "gemini-embedding-exp-03-07", text: str = ""):
+def get_embedding(client, model: str = "gemini-embedding-2-preview", text: str = ""):
     result = client.models.embed_content(
         model=model,
         contents=text,

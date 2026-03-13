@@ -197,3 +197,6 @@ deb-*.json
 
 # CSV
 *.csv
+
+#Copilot
+.copilotignore

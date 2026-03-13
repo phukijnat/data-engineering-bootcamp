@@ -6,17 +6,20 @@ from google import genai
 from google.genai import types
 from google.cloud import bigquery
 from google.oauth2 import service_account
+from dotenv import load_dotenv
+load_dotenv()
 
 
-GCP_PROJECT_ID = "YOUR_GCP_PROJECT_ID"
-DATASET_ID = "YOUR_DATASET_ID"
-TABLE_ID = "YOUR_TABLE_ID"
-KEYFILE = "YOUR_KEYFILE"
+GCP_PROJECT_ID = "dataengineer-bootcamp"
+DATASET_ID = "deb_bootcamp"
+TABLE_ID = "my_course_embeddings"
+KEYFILE = "deb-loading-data-to-bq.json"
+
 # api_key = os.environ.get("GEMINI_API_KEY")
-GEMINI_API_KEY = "YOUR_GEMINI_API_KEY"
+GEMINI_API_KEY = os.getenv("GEMINI_KEY")
 
 
-def get_embedding(client, model: str = "gemini-embedding-exp-03-07", text: str = ""):
+def get_embedding(client, model: str = "gemini-embedding-2-preview", text: str = ""):
     result = client.models.embed_content(
         model=model,
         contents=text,
@@ -24,7 +27,7 @@ def get_embedding(client, model: str = "gemini-embedding-exp-03-07", text: str =
     return result.embeddings[0]
 
 
-def ask_gemini(client, model: str = "gemini-2.0-flash-001", prompt: str = ""):
+def ask_gemini(client, model: str = "gemini-2.5-flash", prompt: str = ""):
     response = client.models.generate_content(
         model=model,
         contents=prompt,
