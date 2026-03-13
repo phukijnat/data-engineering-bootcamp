@@ -1,17 +1,17 @@
 [project]
-name = "06-data-infrastructure-for-gen-ai-app"
+name = "qna-app"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Kan Ouivirach",email = "zkan.cs@gmail.com"}
+    {name = "zkan",email = "kan@odds.team"}
 ]
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 dependencies = [
-    "google-genai (>=1.14.0,<2.0.0)",
+    "streamlit (>=1.46.1,<2.0.0)",
+    "google-genai (>=1.25.0,<2.0.0)",
     "google-cloud-bigquery (>=3.34.0,<4.0.0)",
-    "pandas-gbq (>=0.29.2,<0.30.0)",
-    "python-dotenv (>=1.2.2,<2.0.0)"
+    "python-dotenv (>=1.2.2,<2.0.0)",
 ]
 
 [tool.poetry]

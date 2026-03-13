@@ -22,7 +22,9 @@ RUN pip install --no-cache-dir apache-airflow-providers-apache-spark==4.9.0 \
                                airflow-provider-great-expectations==0.3.0 \
                                astronomer-cosmos==1.10.1 \
                                dbt-core==1.9.4 \
-                               dbt-bigquery==1.9.1
+                               dbt-bigquery==1.9.1 \
+                               google-genai==1.25.0 \
+                               pandas-gbq==0.29.2
 
 COPY ./conf/spark-defaults.conf /home/airflow/.local/lib/python3.9/site-packages/pyspark/conf/spark-defaults.conf
 COPY ./conf/metrics.properties /home/airflow/.local/lib/python3.9/site-packages/pyspark/conf/metrics.properties
