@@ -200,3 +200,6 @@ deb-*.json
 
 #Copilot
 .copilotignore
+
+# Parquet
+.parquet
