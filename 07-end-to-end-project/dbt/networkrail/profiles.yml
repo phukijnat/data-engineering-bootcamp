@@ -1,0 +1,21 @@
+networkrail:
+  target: dbt_phukijnat
+
+  outputs:
+    dbt_phukijnat:
+      type: bigquery
+      method: service-account
+      project: dataengineer-bootcamp
+      dataset: dbt_phukijnat
+      threads: 1
+      keyfile: /Users/phukijnatforwork/data-engineering-bootcamp/07-end-to-end-project/dags/deb-loading-data-to-bq.json
+      location: asia-southeast1
+
+    prod:
+      type: bigquery
+      method: service-account
+      project: YOUR_GCP_PROJECT_ID
+      dataset: networkrail
+      threads: 1
+      keyfile: YOUR_KEYFILE_PATH
+      location: asia-southeast1

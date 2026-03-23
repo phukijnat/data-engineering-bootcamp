@@ -203,3 +203,9 @@ deb-*.json
 
 # Parquet
 .parquet
+
+# Kafka
+kafka-data/
+
+# DBT Packages
+package-lock.yml

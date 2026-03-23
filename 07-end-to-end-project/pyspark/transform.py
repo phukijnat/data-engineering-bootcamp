@@ -2,13 +2,13 @@ from pyspark.sql import SparkSession
 from pyspark.sql.types import StructField, StructType, StringType, TimestampType
 
 
-BUCKET_NAME = "YOUR_BUCKET_NAME"
+BUCKET_NAME = "deb-bootcamp-37"
 BUSINESS_DOMAIN = "networkrail"
 SOURCE_FOLDER = f"{BUSINESS_DOMAIN}/raw"
 DESTINATION_FOLDER = f"{BUSINESS_DOMAIN}/processed"
-KEYFILE_PATH = "/opt/spark/pyspark/YOUR_KEYFILE.json"
+KEYFILE_PATH = "/opt/spark/pyspark/deb-uploading-files-to-gcs.json"
 
-spark = SparkSession.builder.appName("demo_gcs") \
+spark = SparkSession.builder.appName("networkrail_transform") \
     .config("spark.memory.offHeap.enabled", "true") \
     .config("spark.memory.offHeap.size", "5g") \
     .config("fs.gs.impl", "com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem") \
@@ -70,4 +70,4 @@ result = spark.sql("""
 """)
 
 OUTPUT_PATH = f"gs://{BUCKET_NAME}/{DESTINATION_FOLDER}"
-result.write.mode("overwrite").parquet(OUTPUT_PATH)
+result.coalesce(1).write.mode("overwrite").parquet(OUTPUT_PATH)

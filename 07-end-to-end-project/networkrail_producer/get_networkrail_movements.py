@@ -17,11 +17,12 @@ confluent_key = parser.get("confluent_config", "confluent_key")
 confluent_secret = parser.get("confluent_config", "confluent_secret")
 
 producer = KafkaProducer(
-    bootstrap_servers=confluent_bootstrap_servers,
-    sasl_mechanism="PLAIN",
-    security_protocol="SASL_SSL",
-    sasl_plain_username=confluent_key,
-    sasl_plain_password=confluent_secret,
+    # bootstrap_servers=confluent_bootstrap_servers,
+    # sasl_mechanism="PLAIN",
+    # security_protocol="SASL_SSL",
+    # sasl_plain_username=confluent_key,
+    # sasl_plain_password=confluent_secret,
+    bootstrap_servers='localhost:29092',
 )
 
 
