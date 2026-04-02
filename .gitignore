@@ -209,3 +209,6 @@ kafka-data/
 
 # DBT Packages
 package-lock.yml
+
+# Network Rail configuration
+networkrail_producer/networkrail.conf
